@@ -193,3 +193,47 @@ plot(reduntantGraph)
 # Modularity
 plot(numCluster, gUndirected, layout = layout_with_fr, vertex.size = 10, vertex.label = NA)
 
+# Eigenvector
+eigenvec <- centr_eigen(g)
+V(g)$color <- apply(c_scale(centr_eigen(g)$vector), 1, function(x) rgb(x[1]/255,x[2]/255,x[3]/255))
+plot(g, layout = layout_with_fr,
+     vertex.size = 8,          # smaller circles
+     vertex.label = NA,        # hide labels to reduce clutter (optional)
+     edge.arrow.size = 0.05,    # smaller arrowheads
+     edge.curved = 0.3,        # slightly curved edges to improve arrow visibility
+     edge.color = "gray40"
+)
+
+# Katz
+V(g)$color <- apply(c_scale(alpha_centrality(g, alpha=.1)/max
+                             (alpha_centrality(g, alpha=.1))), 1,
+                     function(x) rgb(x[1]/ 255,x[2]/255,x[3]/255) )
+plot(g, layout = layout_with_fr,
+     vertex.size = 8,          # smaller circles
+     vertex.label = NA,        # hide labels to reduce clutter (optional)
+     edge.arrow.size = 0.05,    # smaller arrowheads
+     edge.curved = 0.3,        # slightly curved edges to improve arrow visibility
+     edge.color = "gray40"
+)
+
+# PageRank
+V(g)$color <- apply(c_scale(page_rank(g)$vector/max(page_rank(g)$vector)), 1,
+                     function(x) rgb(x[1]/255,x[2]/255,x[3]/255))
+plot(g, layout = layout_with_fr,
+     vertex.size = 8,          # smaller circles
+     vertex.label = NA,        # hide labels to reduce clutter (optional)
+     edge.arrow.size = 0.05,    # smaller arrowheads
+     edge.curved = 0.3,        # slightly curved edges to improve arrow visibility
+     edge.color = "gray40"
+)
+
+
+
+
+
+
+
+
+
+
+

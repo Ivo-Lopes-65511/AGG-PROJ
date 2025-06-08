@@ -1,0 +1,16 @@
+
+Diâmetro:
+	Maior sequência de dependências de imports/classes.
+
+Redundância:
+	Redundância alta para uma classe C indica que há muitas classes que dependem diretamente de C que por sua vez são dependentes umas das outras.
+
+Clustering/Modularidade:
+	Clustering quantifica o nível de transitividade.
+	Poderá indicar classes que trabalham para o mesmo objetivo.
+	Modularidade representa o quanto as classes estão dependentes umas das outras. Classes mais dependentes ficam juntas.
+	Seria uma boa medida para criar packages. Maior modularidade significa melhor desenho arquitetural.
+
+Betweenness:
+	O quão uma classe está num caminho de dependências de outras classes.
+	É esperado que classes mais importantes, como a classe Sistema, tenham maior betweenness por terem mais classes a depender destas.
